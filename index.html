@@ -4,8 +4,37 @@
     <title>Tarot Picker</title>
   </head>
   <body>
-    <div id="container"> 
-      <p>Lorem Ipsum</p>
+    <div id="container">
+      <div id="01" class="card reveal hold">
+        <img class="card-front reveal" src="" />
+      </div>
+      <div id="02" class="card reveal hold">
+        <img class="card-front reveal" src="" />
+      </div>
+      <div id="03" class="card reveal hold">
+        <img class="card-front reveal" src="" />
+      </div>
     </div>
+    <hr>
+    <div id="alt-picker">
+      <div class="suit major">
+        <span>MAJOR ARCANA</span>
+      </div>
+      <div class="suit wands">
+        <span>WANDS</span>
+      </div>
+      <div class="suit cups">
+        <span>CUPS</span>
+      </div>
+      <div class="suit swords">
+        <span>SWORDS</span>
+      </div>
+      <div class="suit pentacles">
+        <span>PENTACLES</span>
+      </div>
+      <div id="contents" class="hidden">
+      </div>
+    </div>
+    <button onclick="clearDeck()">CLEAR</button>
   </body>
 </html>
