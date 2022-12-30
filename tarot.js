@@ -89,7 +89,11 @@ let fullDeck = {
 	]
 }
 var revCount = 0;
-initPicker();
+document.onreadystatechange = function () {
+  if (document.readyState == "complete") {
+    initPicker();
+  }
+}
 
 function initPicker(){
 	var suitSelect = document.getElementsByClassName("suit");
