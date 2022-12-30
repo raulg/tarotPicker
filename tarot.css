@@ -1,0 +1,76 @@
+#container {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+.card {
+	width: 210px;
+	height: 350px;
+	background-image: url("https://raw.githubusercontent.com/raulg/tarotPicker/main/TarotAssets/cardback.jpg");
+	transform-style: preserve-3d;
+}
+
+#alt-picker {
+	display:flex;
+	flex: row;
+	justify-content: space-around;
+	font-family: Verdana, sans-serif;
+	font-size: 2rem;
+	font-weight: bold;
+	color: white;
+}
+
+.suit {
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	background-position: center;
+	filter: grayscale(85%);
+	display: flex;
+	justify-content:center;
+	align-items:center;
+	text-align:center;
+	transition: 1s all;
+}
+.suit:hover {
+	filter:grayscale(0%);
+}
+.suit > span {
+	pointer-events:none;
+}
+.hidden {
+	display:none !important;
+}
+
+.major {
+	background-image:url("https://raw.githubusercontent.com/raulg/tarotPicker/main/TarotAssets/2.jpg");
+}
+.wands {
+	background-image:url("https://raw.githubusercontent.com/raulg/tarotPicker/main/TarotAssets/27.jpg");
+}
+.cups {
+	background-image:url("https://raw.githubusercontent.com/raulg/tarotPicker/main/TarotAssets/37.jpg");
+}
+.swords {
+	background-image:url("https://raw.githubusercontent.com/raulg/tarotPicker/main/TarotAssets/58.jpg");
+}
+.pentacles {
+	background-image:url("https://raw.githubusercontent.com/raulg/tarotPicker/main/TarotAssets/69.jpg");
+}
+#contents {
+	width: 80%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+
+}
+
+.reveal {
+	backface-visibility: hidden;
+	transition: 1.5s all ease-in-out;
+	transform: rotatey(180deg);
+}
+.hold {
+	transform: rotatey(0deg) !important;
+}
