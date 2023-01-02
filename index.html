@@ -17,8 +17,7 @@
         <img class="card-front reveal" src="" />
       </div>
     </div>
-    <hr>
-    <div id="alt-picker">
+    <div id="picker">
       <div class="suit major">
         <span>MAJOR ARCANA</span>
       </div>
@@ -37,6 +36,23 @@
       <div id="contents" class="hidden">
       </div>
     </div>
-    <button onclick="clearDeck()">CLEAR</button>
+    <div id="interface">
+      <button onclick="clearDeck()">CLEAR</button>
+      <label>
+        <input type="checkbox" id="reverse" name="reversed">
+        Reverse Card
+      </label>
+      
+      <form>
+        <label>
+          <input type="radio" id="deck-01" name="deck" value="Anime" checked>
+          Anime Deck
+        </label>
+        <label>
+          <input type="radio" id="deck-02" name="deck" value="Smith-Waite">
+          Smith-Waite
+        </label>
+      </form>
+    </div>
   </body>
 </html>

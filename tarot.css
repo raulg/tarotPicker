@@ -1,3 +1,11 @@
+:root {
+	--major-bg: url("TarotAssets/Anime/6.jpg");
+	--wands-bg: url("TarotAssets/Anime/24.jpg");
+	--cups-bg: url("TarotAssets/Anime/36.jpg");
+	--swords-bg: url("TarotAssets/Anime/51.jpg");
+	--pentacles-bg: url("TarotAssets/Anime/65.jpg");
+}
+
 #container {
 	width: 100%;
 	display: flex;
@@ -7,11 +15,21 @@
 .card {
 	width: 210px;
 	height: 350px;
-	background-image: url("https://raw.githubusercontent.com/raulg/tarotPicker/main/TarotAssets/cardback.jpg");
+	border-radius: 25px;
+	background-image: url("TarotAssets/cardback.jpg");
 	transform-style: preserve-3d;
 }
 
-#alt-picker {
+.card-front {
+	width: 100%;
+	border-radius: 25px;
+}
+
+.reversed {
+	transform: rotatey(180deg) rotate(180deg) !important;
+}
+
+#picker {
 	display:flex;
 	flex: row;
 	justify-content: space-around;
@@ -19,6 +37,8 @@
 	font-size: 2rem;
 	font-weight: bold;
 	color: white;
+	margin-top: 3em;
+	margin-bottom: 1em;
 }
 
 .suit {
@@ -40,23 +60,24 @@
 	pointer-events:none;
 }
 .hidden {
-	display:none !important;
+	opacity: 0 !important;
+	width: 0 !important;
 }
 
 .major {
-	background-image:url("https://raw.githubusercontent.com/raulg/tarotPicker/main/TarotAssets/2.jpg");
+	background-image:var(--major-bg);
 }
 .wands {
-	background-image:url("https://raw.githubusercontent.com/raulg/tarotPicker/main/TarotAssets/27.jpg");
+	background-image:var(--wands-bg);
 }
 .cups {
-	background-image:url("https://raw.githubusercontent.com/raulg/tarotPicker/main/TarotAssets/37.jpg");
+	background-image:var(--cups-bg);
 }
 .swords {
-	background-image:url("https://raw.githubusercontent.com/raulg/tarotPicker/main/TarotAssets/58.jpg");
+	background-image:var(--swords-bg);
 }
 .pentacles {
-	background-image:url("https://raw.githubusercontent.com/raulg/tarotPicker/main/TarotAssets/69.jpg");
+	background-image:var(--pentacles-bg);
 }
 #contents {
 	width: 80%;

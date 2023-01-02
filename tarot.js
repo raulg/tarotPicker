@@ -89,9 +89,15 @@ let fullDeck = {
 	]
 }
 var revCount = 0;
+var deckPath = "TarotAssets/Anime/";
+
 document.onreadystatechange = function () {
   if (document.readyState == "complete") {
     initPicker();
+	var decks = document.querySelectorAll('input[name="deck"]');
+	for (let deck of decks) {
+		deck.addEventListener('change', changeDeck);
+	}
   }
 }
 
@@ -108,10 +114,37 @@ function initPicker(){
 	cont.innerHTML = "";
 }
 
+function changeDeck() {
+	let selectedDeck = document.querySelector('input[name="deck"]:checked').value;
+	deckPath = "TarotAssets/"+selectedDeck+"/";
+
+	switch(selectedDeck) {
+		case 'Anime':
+			var card = [6, 24, 36, 51, 65];
+			break;
+		case 'Smith-Waite':
+			var card = [2, 27, 37, 58, 69];
+			break;
+		default:
+			var card = [2, 27, 37, 58, 69];
+			break;
+	}
+	let root = document.documentElement;
+	root.style.setProperty('--major-bg', 'url("'+deckPath+card[0]+'.jpg")');
+	root.style.setProperty('--wands-bg', 'url("'+deckPath+card[1]+'.jpg")');
+	root.style.setProperty('--cups-bg', 'url("'+deckPath+card[2]+'.jpg")');
+	root.style.setProperty('--swords-bg', 'url("'+deckPath+card[3]+'.jpg")');
+	root.style.setProperty('--pentacles-bg', 'url("'+deckPath+card[4]+'.jpg")');
+}
+
 function setCard(cardNo) {
 	let reveal = revCount % 3;
 	var cards = document.getElementsByClassName("card");
-	cards[reveal].firstElementChild.src = "https://raw.githubusercontent.com/raulg/tarotPicker/main/TarotAssets/"+cardNo+".jpg";
+	cards[reveal].firstElementChild.src = deckPath+cardNo+".jpg";
+	if (document.getElementById("reverse").checked) {
+		cards[reveal].firstElementChild.classList.add("reversed");
+	}
+
 	cards[reveal].classList.remove("hold");
 	revCount++;
 }
@@ -164,6 +197,7 @@ function clearDeck(){
 	revCount = 0;
 	var cards = document.querySelectorAll('.card');
 	for (let item of cards) {
+		item.firstElementChild.classList.remove('reversed');
 		item.classList.add('hold');
 	}	
 }
